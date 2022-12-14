@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-
-const capitalize = (str, lower = false) =>
-  (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
-;
+import capitalize from 'C:/Users/Dell/Desktop/text-utils/src/index.js';
 
 export default function TextForm(props) {
     const handleUpperCaseClick = () => {
@@ -35,11 +32,11 @@ export default function TextForm(props) {
     const [text, setText] = useState("Enter Your Text Here")
     return (
         <>
-            <div className='container '>
+            <div className='container' style={{color: props.mode === 'light' ? 'black' : 'white'}}>
                 <h1>{props.heading}</h1>
                 
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" style={props.mode === 'light' ? {color: 'black' , backgroundColor: 'white'} : {color: 'white' , backgroundColor: '#333'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
                 <div className="container position-relative">
                     <button className="btn btn-primary mx-1" onClick={handleUpperCaseClick}>UpperCase Text</button>
@@ -49,12 +46,12 @@ export default function TextForm(props) {
                 </div>
             </div>
 
-            <div className="container my-3">
+            <div className="container my-3" style={{color: props.mode === 'light' ? 'black' : 'white'}}>
                 <h2>Text Analytics:</h2>
                 <p>{text.split(" ").length - 1} Words and {text.length} Characters</p>
                 <p>Would take roughly {0.08 * (text.split(" ").length - 1)} Minutes to read.</p>
                 <h2>Text Preview:</h2>
-                <p>{text}</p>
+                <p>{text.length > 0 ? text : <tt>Your Preview Appears Here</tt>}</p>
             </div>
         </>
     )
