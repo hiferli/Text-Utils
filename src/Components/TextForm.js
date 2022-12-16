@@ -22,7 +22,7 @@ export default function TextForm(props) {
     
     const handleClearText = () => {
         setText("");
-        props.showAlert("Text Cleared" , "success")
+        props.showAlert("Text Cleared" , "info")
     }
     
     const handleCapitalCaseClick = () => {
@@ -51,7 +51,7 @@ export default function TextForm(props) {
                     <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleLowerCaseClick}>LowerCase Text</button>
                     <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleCapitalCaseClick}>Capitalize Text</button>
                     {/* <button className="btn btn-primary btn-info mx-1 position-absolute top-50 end-0 translate-middle-y" >Clear</button> */}
-                    <button type="button" className="btn-close position-absolute top-50 end-0 translate-middle-y" data-bs-dismiss="alert" aria-label="Close" onClick={handleClearText}></button>
+                    <button disabled = {text.length === 0} type="button" className="btn-close position-absolute top-50 end-0 translate-middle-y" data-bs-dismiss="alert" aria-label="Close" onClick={handleClearText}></button>
                 </div>
             </div>
 
