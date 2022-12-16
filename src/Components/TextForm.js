@@ -6,22 +6,26 @@ export default function TextForm(props) {
         // console.log("This Upper Case Button was Clicked")
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Text converted to Upper Case" , "success")
     }
     
     const handleLowerCaseClick = () => {
         // console.log("This Upper Case Button was Clicked")
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Text converted to Lower Case" , "success")
     }
     
     const handleClearText = () => {
         setText("");
+        props.showAlert("Text Cleared" , "success")
     }
-
+    
     const handleCapitalCaseClick = () => {
         // console.log("This Upper Case Button was Clicked")
         let newText = capitalize(text);
         setText(newText);
+        props.showAlert("Text Capitalized" , "success")
     }
 
     const handleOnChange = (event) => {
@@ -36,22 +40,23 @@ export default function TextForm(props) {
                 <h1>{props.heading}</h1>
                 
                 <div className="mb-3">
-                    <textarea className="form-control" style={props.mode === 'light' ? {color: 'black' , backgroundColor: 'white'} : {color: 'white' , backgroundColor: '#333'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control " style={props.mode === 'light' ? {color: 'black' , backgroundColor: 'white'} : {color: 'white' , backgroundColor: '#333'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
                 <div className="container position-relative">
                     <button className="btn btn-primary mx-1" onClick={handleUpperCaseClick}>UpperCase Text</button>
                     <button className="btn btn-primary mx-1" onClick={handleLowerCaseClick}>LowerCase Text</button>
                     <button className="btn btn-primary mx-1" onClick={handleCapitalCaseClick}>Capitalize Text</button>
-                    <button className="btn btn-primary btn-info mx-1 position-absolute top-50 end-0 translate-middle-y" onClick={handleClearText}>Clear</button>
+                    {/* <button className="btn btn-primary btn-info mx-1 position-absolute top-50 end-0 translate-middle-y" >Clear</button> */}
+                    <button type="button" className="btn-close position-absolute top-50 end-0 translate-middle-y" data-bs-dismiss="alert" aria-label="Close" onClick={handleClearText}></button>
                 </div>
             </div>
 
             <div className="container my-3" style={{color: props.mode === 'light' ? 'black' : 'white'}}>
                 <h2>Text Analytics:</h2>
-                <p>{text.split(" ").length - 1} Words and {text.length} Characters</p>
-                <p>Would take roughly {0.08 * (text.split(" ").length - 1)} Minutes to read.</p>
+                <p><b>{text.split(" ").length - 1}</b> Words and <b>{text.length}</b> Characters</p>
+                <p>Would take roughly <b>{0.08 * (text.split(" ").length - 1)}</b> Minutes to read.</p>
                 <h2>Text Preview:</h2>
-                <p>{text.length > 0 ? text : <tt>Your Preview Appears Here</tt>}</p>
+                <p><tt>{text.length > 0 ? text : "Your Preview Appears Here"}</tt></p>
             </div>
         </>
     )
