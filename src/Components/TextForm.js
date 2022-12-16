@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import capitalize from 'C:/Users/Dell/Desktop/text-utils/src/index.js';
 
 const numberOfWords = (str) => {
-    return (str.split(" ").filter((element) => {return element.length !== 0}).length)
+    return (str.split(/\s+/).filter((element) => {return element.length !== 0}).length)
 }
 
 export default function TextForm(props) {
