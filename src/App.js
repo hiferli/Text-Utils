@@ -44,7 +44,7 @@ function App() {
 					<TextForm showAlert = {displayAlert} heading = "Enter the Text:" mode = {theme}></TextForm>
 				}/>
 				<Route exact path='/about' element={
-					<About></About>
+					<About mode = {theme}></About>
 				} />
 		</Routes>
 			</div>
