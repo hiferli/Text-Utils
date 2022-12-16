@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import capitalize from 'C:/Users/Dell/Desktop/text-utils/src/index.js';
 
 const numberOfWords = (str) => {
-    if(str.length || str.split(" ").length !== str.length)
-        return str.trim().split(/\s+/).length;
-    else 
-        return 0;
+    return (str.split(" ").filter((element) => {return element.length !== 0}).length)
 }
 
 export default function TextForm(props) {
@@ -60,8 +57,8 @@ export default function TextForm(props) {
 
             <div className="container my-3" style={{color: props.mode === 'light' ? 'black' : 'white'}}>
                 <h2>Text Analytics:</h2>
-                <p><b>{numberOfWords(text) - 1}</b> Words and <b>{text.length}</b> Characters</p>
-                <p>Would take roughly <b>{(0.08 * (numberOfWords(text) - 1))}</b> Minutes to read.</p>
+                <p><b>{numberOfWords(text)}</b> Words and <b>{text.length}</b> Characters</p>
+                <p>Would take roughly <b>{(0.08 * numberOfWords(text))}</b> Minutes to read.</p>
                 <h2>Text Preview:</h2>
                 <p><tt>{text.length > 0 ? text : "Your Preview Appears Here"}</tt></p>
             </div>
