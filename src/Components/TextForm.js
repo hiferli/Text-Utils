@@ -47,9 +47,9 @@ export default function TextForm(props) {
                     <textarea className="form-control " style={props.mode === 'light' ? {color: 'black' , backgroundColor: 'white'} : {color: 'white' , backgroundColor: '#333'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
                 <div className="container position-relative">
-                    <button className="btn btn-primary mx-1" onClick={handleUpperCaseClick}>UpperCase Text</button>
-                    <button className="btn btn-primary mx-1" onClick={handleLowerCaseClick}>LowerCase Text</button>
-                    <button className="btn btn-primary mx-1" onClick={handleCapitalCaseClick}>Capitalize Text</button>
+                    <button className="btn btn-primary mx-1 my-1" onClick={handleUpperCaseClick}>UpperCase Text</button>
+                    <button className="btn btn-primary mx-1 my-1" onClick={handleLowerCaseClick}>LowerCase Text</button>
+                    <button className="btn btn-primary mx-1 my-1" onClick={handleCapitalCaseClick}>Capitalize Text</button>
                     {/* <button className="btn btn-primary btn-info mx-1 position-absolute top-50 end-0 translate-middle-y" >Clear</button> */}
                     <button type="button" className="btn-close position-absolute top-50 end-0 translate-middle-y" data-bs-dismiss="alert" aria-label="Close" onClick={handleClearText}></button>
                 </div>
